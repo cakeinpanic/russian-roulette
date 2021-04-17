@@ -2,9 +2,11 @@
   "name": "russian-roulette",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ncc run index.ts",
+    "build": "ncc build index.ts -o ./"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,15 @@
   },
   "homepage": "https://github.com/cakeinpanic/russian-roulette#readme",
   "dependencies": {
+    "@actions/core": "^1.2.7",
+    "@slack/events-api": "^3.0.0",
+    "@slack/web-api": "^6.1.0",
+    "@zeit/ncc": "^0.22.3",
+    "random-item": "^4.0.0",
+    "strip-ansi": "^7.0.0",
     "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41"
   }
 }

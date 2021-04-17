@@ -5138,7 +5138,7 @@ function extractFailedTestsMessages(filePath = './jest.json') {
     const failedTests = metadata.testResults.filter(({ status }) => status === 'failed');
     return failedTests.map(({ message }) => strip_ansi_1.default(message));
 }
-const fixersList = JSON.parse(core_1.getInput('fixers', { required: true }));
+const fixersList = core_1.getInput('fixers', { required: true }).split(',');
 extractFailedTestsMessages().map(message => {
     const fixer = random_item_1.default(fixersList);
     slack_1.sendToSlack(`Lucky one is <@${fixer}>! You are honoured to fix this one:\n` + message);

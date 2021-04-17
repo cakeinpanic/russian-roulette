@@ -11,7 +11,7 @@ function extractFailedTestsMessages(filePath = './jest.json'): string[] {
   return failedTests.map(({ message }) => stripAnsi(message))
 }
 
-const fixersList = JSON.parse(getInput('fixers', { required: true }))
+const fixersList = getInput('fixers', { required: true }).split(',')
 
 extractFailedTestsMessages().map(message => {
   const fixer = randomItem(fixersList)

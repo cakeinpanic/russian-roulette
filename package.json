@@ -1,0 +1,33 @@
+{
+  "name": "russian-roulette",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ncc run index.ts",
+    "build": "ncc build index.ts -o ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cakeinpanic/russian-roulette.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cakeinpanic/russian-roulette/issues"
+  },
+  "homepage": "https://github.com/cakeinpanic/russian-roulette#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "@slack/events-api": "^3.0.0",
+    "@slack/web-api": "^6.1.0",
+    "@zeit/ncc": "^0.22.3",
+    "dotenv": "^8.2.0",
+    "random-item": "^4.0.0",
+    "strip-ansi": "^7.0.0",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41"
+  }
+}

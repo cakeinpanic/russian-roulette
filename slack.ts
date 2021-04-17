@@ -1,6 +1,5 @@
 import { getInput } from '@actions/core'
 import { ChatPostMessageArguments, WebClient } from '@slack/web-api'
-
 import env from 'dotenv'
 import randomItem from 'random-item'
 
@@ -11,9 +10,6 @@ const channelId = process.env.CHANNEL_ID || getInput('slack-channel', { required
 const web = new WebClient(token)
 
 export const sendToSlack = async (phrase) => {
-  //console.log(phrase)
-  //const users = await web.conversations.members({ channel: channelId })
-  //console.log(users);
   const res = await web.chat.postMessage({
     channel: channelId,
     blocks: [

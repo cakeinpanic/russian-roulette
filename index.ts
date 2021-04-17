@@ -1,9 +1,7 @@
-import { getInput } from '@actions/core'
 import fs from 'fs'
-import randomItem from 'random-item'
 
 import stripAnsi from 'strip-ansi'
-import { sendToSlack } from './slack'
+import { sendToRandomFixer } from './slack'
 
 function extractFailedTestsMessages(filePath = './jest.json'): string[] {
   const metadata = JSON.parse(fs.readFileSync(filePath).toString())
@@ -11,10 +9,8 @@ function extractFailedTestsMessages(filePath = './jest.json'): string[] {
   return failedTests.map(({ message }) => stripAnsi(message))
 }
 
-const fixersList = getInput('fixers', { required: true }).split(',')
 
 extractFailedTestsMessages().map(message => {
-  const fixer = randomItem(fixersList)
-  sendToSlack(`Lucky one is <@${fixer}>! You are honoured to fix this one:\n` + message)
+  sendToRandomFixer(message)
 })
 

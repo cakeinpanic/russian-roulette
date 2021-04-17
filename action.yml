@@ -5,10 +5,10 @@ inputs:
     description: Slack token
     required: true
   slack-channel:
-    description: Slack token
+    description: Slack channel id
     required: true
   fixers:
-    description: Slack token
+    description: Fixers list separated by comma
     required: true
 runs:
   using: 'node12'

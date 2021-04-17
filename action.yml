@@ -10,7 +10,6 @@ inputs:
   fixers:
     description: Slack token
     required: true
-outputs:
 runs:
   using: 'node12'
   main: 'index.js'

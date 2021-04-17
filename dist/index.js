@@ -722,15 +722,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendToSlack = void 0;
-const core_1 = __importDefault(__webpack_require__(470));
+const core_1 = __webpack_require__(470);
 const web_api_1 = __webpack_require__(114);
-const token = core_1.default.getInput('slack-token', { required: true });
-const conversationId = core_1.default.getInput('slack-channel', { required: true });
+const token = core_1.getInput('slack-token', { required: true });
+const conversationId = core_1.getInput('slack-channel', { required: true });
 const web = new web_api_1.WebClient(token);
 const sendToSlack = (phrase) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(phrase);
@@ -5131,7 +5128,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __importDefault(__webpack_require__(470));
+const core_1 = __webpack_require__(470);
 const fs_1 = __importDefault(__webpack_require__(747));
 const random_item_1 = __importDefault(__webpack_require__(560));
 const strip_ansi_1 = __importDefault(__webpack_require__(276));
@@ -5141,7 +5138,7 @@ function extractFailedTestsMessages(filePath = './jest.json') {
     const failedTests = metadata.testResults.filter(({ status }) => status === 'failed');
     return failedTests.map(({ message }) => strip_ansi_1.default(message));
 }
-const fixersList = JSON.parse(core_1.default.getInput('fixers', { required: true }));
+const fixersList = JSON.parse(core_1.getInput('fixers', { required: true }));
 extractFailedTestsMessages().map(message => {
     const fixer = random_item_1.default(fixersList);
     slack_1.sendToSlack(`Lucky one is <@${fixer}>! You are honoured to fix this one:\n` + message);

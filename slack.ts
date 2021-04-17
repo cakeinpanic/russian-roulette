@@ -1,8 +1,8 @@
-import core from '@actions/core'
+import { getInput } from '@actions/core'
 import { ChatPostMessageArguments, WebClient } from '@slack/web-api'
 
-const token = core.getInput('slack-token', { required: true })
-const conversationId = core.getInput('slack-channel', { required: true })
+const token = getInput('slack-token', { required: true })
+const conversationId = getInput('slack-channel', { required: true })
 const web = new WebClient(token)
 
 export const sendToSlack = async (phrase) => {

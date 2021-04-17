@@ -1,4 +1,4 @@
-import core from '@actions/core'
+import { getInput } from '@actions/core'
 import fs from 'fs'
 import randomItem from 'random-item'
 
@@ -11,7 +11,7 @@ function extractFailedTestsMessages(filePath = './jest.json'): string[] {
   return failedTests.map(({ message }) => stripAnsi(message))
 }
 
-const fixersList = JSON.parse(core.getInput('fixers', { required: true }))
+const fixersList = JSON.parse(getInput('fixers', { required: true }))
 
 extractFailedTestsMessages().map(message => {
   const fixer = randomItem(fixersList)

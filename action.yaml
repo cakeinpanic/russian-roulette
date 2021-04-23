@@ -1,0 +1,15 @@
+name: 'Russian roulette'
+description: 'Russian roulette for tests'
+inputs:
+  slack-token:
+    description: Slack token
+    required: true
+  slack-channel:
+    description: Slack channel id
+    required: true
+  fixers:
+    description: Fixers list separated by comma
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

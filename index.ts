@@ -1,5 +1,6 @@
 import fs from 'fs'
 import stripAnsi from 'strip-ansi'
+import { sendToSlack } from './slack'
 
 function extractFailedTestsMessages(filePath = './jest.json'): string[] {
   const metadata = JSON.parse(fs.readFileSync(filePath).toString())
@@ -7,4 +8,4 @@ function extractFailedTestsMessages(filePath = './jest.json'): string[] {
   return failedTests.map(({ message }) => stripAnsi(message))
 }
 
-console.log(extractFailedTestsMessages())
+sendToSlack(extractFailedTestsMessages().join(''))

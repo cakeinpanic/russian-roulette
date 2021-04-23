@@ -9,6 +9,8 @@ const token = process.env.SLACK_TOKEN || getInput('slack-token', { required: tru
 const channelId = process.env.CHANNEL_ID || getInput('slack-channel', { required: true })
 const web = new WebClient(token)
 
+console.log(token)
+
 export const sendToSlack = async (phrase) => {
   const res = await web.chat.postMessage({
     channel: channelId,
